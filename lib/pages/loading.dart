@@ -17,13 +17,13 @@ class _LoadingState extends State<Loading> {
     // TODO: implement initState
     super.initState();
     print("Init Works");
-    get_data();
+    //get_data();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text(time),
+      body: Text('time'),
     );
   }
 }
