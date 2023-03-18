@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'dart:convert';
+import 'package:world_time/services/world_time.dart';
 
 class Loading extends StatefulWidget {
   const Loading({super.key});
@@ -16,13 +17,13 @@ class _LoadingState extends State<Loading> {
     // TODO: implement initState
     super.initState();
     print("Init Works");
-    // get_data();
+    get_data();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text("Loading Page"),
+      body: Text(time),
     );
   }
 }
