@@ -12,25 +12,32 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
+  String a = "loading";
   void setupWorldTime() async {
-    Worldtime instance = Worldtime(
-        location: 'Berlin', flag: 'germany.png', url: 'Europe/Berlin');
+    Worldtime instance =
+        Worldtime(location: 'Berlin', flag: 'germany.png', url: 'Asia/India');
     await instance.get_time();
     print(instance.time);
+    setState(() {
+      a = instance.time;
+    });
   }
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    print("Init Works");
-    //get_data();
+    //print("Init Works");
+    setupWorldTime();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text('time'),
+      body: Padding(
+        padding: EdgeInsets.all(50.0),
+        child: Text(a),
+      ),
     );
   }
 }
