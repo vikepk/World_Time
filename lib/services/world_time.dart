@@ -10,7 +10,7 @@ class Worldtime {
 
   Worldtime({required this.location, required this.flag, required this.url});
 
-  void get_data() async {
+  Future<void> get_time() async {
     // var the_url = Uri.parse('https://zenanvibe.me/premkumar/get_data.php');
     // var res = await http.get(the_url);
     var theUrl = Uri.parse("http://worldtimeapi.org/api/timezone/$url");
