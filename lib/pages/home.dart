@@ -33,14 +33,16 @@ class _HomeState extends State<Home> {
                 children: [
                   Text(
                     data['location'],
-                    style: TextStyle(fontSize: 50.0),
+                    style: TextStyle(fontSize: 20.0),
                   ),
                 ],
               ),
               SizedBox(height: 10),
               Text(
                 data['time'],
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 50,
+                ),
               ),
             ],
           ),

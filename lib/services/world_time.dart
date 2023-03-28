@@ -23,14 +23,14 @@ class Worldtime {
       // print(data["datetime"]);
       // print(data["utc_offset"]);
 
-      String datetime = data["datetime"];
+      String datetime = data['datetime'];
       print(datetime);
-      String offset = data["utc_offset"].substring(1, 3);
+      String offset = data['utc_offset'].substring(1, 3);
       print(offset);
 
       DateTime now = DateTime.parse(datetime);
       print(now);
-      now = now.add(Duration(hours: int.parse(offset)));
+      now = now.add(Duration(minutes: int.parse(offset)));
       print(now);
       time = DateFormat.jm().format(now);
       print(time);
