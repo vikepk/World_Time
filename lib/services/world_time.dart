@@ -8,6 +8,7 @@ class Worldtime {
   late String url;
   late String location;
   late String flag;
+  late bool isDaytime;
 
   Worldtime({required this.location, required this.flag, required this.url});
 
@@ -19,21 +20,27 @@ class Worldtime {
 
       Response response = await get(theUrl);
       Map data = jsonDecode(response.body);
-      print(data);
+      //print(data);
       // print(data["datetime"]);
       // print(data["utc_offset"]);
 
       String datetime = data['datetime'];
-      print(datetime);
+      //print(datetime);
       String offset = data['utc_offset'].substring(1, 3);
-      print(offset);
+      //print(offset);
 
       DateTime now = DateTime.parse(datetime);
-      print(now);
+      //print(now);
       now = now.add(Duration(minutes: int.parse(offset)));
-      print(now);
+      //print(now);
+      if (now.hour > 6 && now.hour < 20) {
+        isDaytime = true;
+      } else {
+        isDaytime = false;
+      }
+      // isDaytime = now.hour > 6 && now.hour < 20 ? true : false;
       time = DateFormat.jm().format(now);
-      print(time);
+      // print(time);
 
       //print(now);
 
