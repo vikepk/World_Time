@@ -9,8 +9,6 @@ class ChooseLocation extends StatefulWidget {
 }
 
 class _ChooseLocationState extends State<ChooseLocation> {
-  int count = 0;
-
   List<Worldtime> locations = [
     Worldtime(url: 'Europe/London', location: 'London', flag: 'uk.png'),
     Worldtime(url: 'Europe/Berlin', location: 'Athens', flag: 'greece.png'),
@@ -24,22 +22,30 @@ class _ChooseLocationState extends State<ChooseLocation> {
 
   @override
   Widget build(BuildContext context) {
-    print("Build Works");
     return Scaffold(
-      backgroundColor: Colors.grey,
-      appBar: AppBar(
-        backgroundColor: Colors.lightBlue,
-        title: Text("Choose Location"),
-        centerTitle: true,
-        elevation: 0,
-      ),
-      body: ElevatedButton(
-          onPressed: () {
-            setState(() {
-              count = count + 1;
-            });
-          },
-          child: Text("Count Value $count")),
-    );
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          backgroundColor: Colors.lightBlue,
+          title: Text("Choose Location"),
+          centerTitle: true,
+          elevation: 0,
+        ),
+        body: ListView.builder(
+            itemCount: locations.length,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Card(
+                  child: ListTile(
+                    onTap: () {},
+                    title: Text(locations[index].location),
+                    leading: CircleAvatar(
+                      backgroundImage:
+                          AssetImage('assets/${locations[index].flag}'),
+                    ),
+                  ),
+                ),
+              );
+            }));
   }
 }
