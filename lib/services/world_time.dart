@@ -20,19 +20,22 @@ class Worldtime {
 
       Response response = await get(theUrl);
       Map data = jsonDecode(response.body);
-      //print(data);
+      print(data);
       // print(data["datetime"]);
       // print(data["utc_offset"]);
 
       String datetime = data['datetime'];
-      //print(datetime);
-      String offset = data['utc_offset'].substring(1, 3);
-      //print(offset);
+      print(datetime);
+      String offset1 = data['utc_offset'].substring(1, 3);
+      String offset2 = data['utc_offset'].substring(4, 6);
+      print(offset1);
+      print(offset2);
 
       DateTime now = DateTime.parse(datetime);
       //print(now);
-      now = now.add(Duration(minutes: int.parse(offset)));
-      //print(now);
+      now = now.add(Duration(hours: int.parse(offset1)));
+      now = now.add(Duration(minutes: int.parse(offset2)));
+      print(now);
       if (now.hour > 6 && now.hour < 20) {
         isDaytime = true;
       } else {
@@ -40,7 +43,7 @@ class Worldtime {
       }
       // isDaytime = now.hour > 6 && now.hour < 20 ? true : false;
       time = DateFormat.jm().format(now);
-      // print(time);
+      print(time);
 
       //print(now);
 
