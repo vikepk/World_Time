@@ -36,7 +36,7 @@ class Worldtime {
       now = now.add(Duration(hours: int.parse(offset1)));
       now = now.add(Duration(minutes: int.parse(offset2)));
       print(now);
-      if (now.hour > 6 && now.hour < 20) {
+      if (now.hour > 6 && now.hour < 19) {
         isDaytime = true;
       } else {
         isDaytime = false;
