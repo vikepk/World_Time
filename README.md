@@ -1,8 +1,11 @@
-World Time Android Mobile Application using Flutter
+#Flutter
 
-An Real Time Android Mobile Application 
+An World Time Android Mobile Application using API .
+
+Do Check output-->screenshots and build apk. 
 
 
-Yet to Complete
+
+
 
 #pk
